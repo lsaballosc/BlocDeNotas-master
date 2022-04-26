@@ -109,30 +109,7 @@ public class Ventana extends javax.swing.JFrame {
         return cont;
     }
 
-    private void buscarpalabra(JTextArea notas, String texto) {
-        if (texto != null) {
-            if (texto.length() >= 1) {
-                DefaultHighlighter.DefaultHighlightPainter subrayador = new DefaultHighlighter.DefaultHighlightPainter(Color.GREEN);
-                Highlighter h = notas.getHighlighter();
-                h.removeAllHighlights();
-                String text = notas.getText();
-                String caracteres = texto;
-                Pattern p = Pattern.compile("(?i)" + caracteres);
-                Matcher m = p.matcher(text);
-                if (m.find()) {
-                    try {
-                        h.addHighlight(m.start(), m.end(), subrayador);
-                    } catch (BadLocationException ex) {
 
-                    }
-                } else {
-                    JOptionPane.showMessageDialog(this, "No se ha enconrado esa palabra", "Informacion", JOptionPane.INFORMATION_MESSAGE);
-                }
-            } else {
-                JOptionPane.showMessageDialog(this, "La palabra no puede estar vacía", "Informacion", JOptionPane.INFORMATION_MESSAGE);
-            }
-        }
-    }
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -687,60 +664,6 @@ public class Ventana extends javax.swing.JFrame {
 
     }//GEN-LAST:event_buscarActionPerformed
 
-
-    private void inkFreeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inkFreeActionPerformed
-
-        fuente = new Font("Ink Free", 3, 20);
-        notas.setFont(fuente);
-    }//GEN-LAST:event_inkFreeActionPerformed
-
-    private void jokermanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jokermanActionPerformed
-
-        fuente = new Font("Jokerman", 3, 20);
-        notas.setFont(fuente);
-    }//GEN-LAST:event_jokermanActionPerformed
-
-    private void georgiaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_georgiaActionPerformed
-
-        fuente = new Font("Georgia", 3, 20);
-        notas.setFont(fuente);
-    }//GEN-LAST:event_georgiaActionPerformed
-
-    private void tahomaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tahomaActionPerformed
-
-        fuente = new Font("Tahoma", 3, 20);
-        notas.setFont(fuente);
-    }//GEN-LAST:event_tahomaActionPerformed
-
-    private void ImpactActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ImpactActionPerformed
-
-        fuente = new Font("Impact", 3, 20);
-        notas.setFont(fuente);
-    }//GEN-LAST:event_ImpactActionPerformed
-
-    private void ArialActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ArialActionPerformed
-
-        fuente = new Font("Arial", 3, 20);
-        notas.setFont(fuente);
-
-    }//GEN-LAST:event_ArialActionPerformed
-
-    private void ColorLetrasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ColorLetrasActionPerformed
-
-        Color initialcolor = Color.WHITE;
-        Color color = JColorChooser.showDialog(this, "Selecciona un color", initialcolor);
-        notas.setForeground(color);
-
-    }//GEN-LAST:event_ColorLetrasActionPerformed
-
-    private void ColorFondoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ColorFondoActionPerformed
-
-        Color initialcolor = Color.BLACK;
-        Color color = JColorChooser.showDialog(this, "Selecciona un color", initialcolor);
-        notas.setBackground(color);
-
-    }//GEN-LAST:event_ColorFondoActionPerformed
-
     private void formWindowDeactivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowDeactivated
 
         try {
@@ -794,13 +717,7 @@ public class Ventana extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_mostrarNumLineaActionPerformed
 
-    private void sliderStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_sliderStateChanged
-
-        int tamaño = slider.getValue();
-        fuente = new Font(notas.getFont().getFamily(), Font.PLAIN, tamaño);
-        notas.setFont(fuente);
-        this.infoTam.setText("Tamaño de las letras: " + slider.getValue());
-    }//GEN-LAST:event_sliderStateChanged
+    
 
     private void fuentesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fuentesActionPerformed
         // TODO add your handling code here:
